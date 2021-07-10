@@ -1,0 +1,30 @@
+// fonts 
+@mixin cabin {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 400;
+}
+
+@mixin cabin-bold {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700;
+}
+
+@mixin raleway {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+
+@mixin raleway-med {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+@mixin raleway-semi {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+@mixin raleway-bold {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}

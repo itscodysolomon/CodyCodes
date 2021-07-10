@@ -1,0 +1,172 @@
+// @import './theme';
+
+
+#bug-wrap {
+  position: absolute;
+  top: 65%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+}
+
+#bug {
+  position: relative;
+  transform: rotate(90deg);
+  width: 25px;
+  height: 25px;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  cursor: crosshair;
+  transition: opacity .5s;
+  opacity: 1;
+}
+
+#body {
+  position: absolute;
+  width: 50%;
+  height: 70%;
+  display: block;
+  background: $primary;
+  border-radius: 50%;
+  top: 13%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#head {
+  position: absolute;
+  width: 38%;
+  height: 30%;
+  display: block;
+  background: $primary;
+  border-radius: 50%;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#wings {
+  div {
+    position: absolute;
+    width: 42%;
+    height: 30%;
+    display: block;
+    border: solid $primary 1px;
+    border-radius: 50%;
+    top: 27%;
+  }
+
+  >div:first-of-type {
+    left: -2%;
+  }
+
+  >div:last-of-type {
+    right: -2%;
+  }
+}
+
+#antennas {
+  .antenna {
+    position: absolute;
+    width: 5%;
+    height: 40%;
+    display: block;
+    background: $primary;
+    border-radius: 40%;
+  }
+
+  >div {
+    top: -9%;
+    left: 50%;
+  }
+
+  >div:first-of-type {
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  >div:last-of-type {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+}
+
+.wing {
+  animation-name: flap;
+  animation-duration: .2s;
+  animation-iteration-count: infinite;
+}
+
+#bug-master {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 12;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  transition: opacity 1s ease-in-out;
+  animation-name: bugMaster;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode:inherit;
+
+  img {
+    width: 100vw;
+    top: 50%;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    position: fixed;
+
+    @include bp($tablet) {
+      width: 60vw;
+    }
+
+    @include bp($desktop-md) {
+      width: 50rem;
+    }
+  }
+
+}
+
+@keyframes flap {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@keyframes bugMaster {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

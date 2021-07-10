@@ -1,0 +1,57 @@
+
+
+html[data-theme="dark"] {
+    #contact {
+        background-image: url('../../assets/contact/contact-background-dark.png');
+    }
+}
+
+#contact {
+    min-height: 100vh;
+    background-image: url(--contact-bg);
+    background-size: cover;
+    background-position: 87% 50%;
+    background-image: url('../../assets/contact/contact-background-light.png');
+    -webkit-transition: background-image .15s ease-in-out;
+    transition: background-image .15s ease-in-out;
+
+    h2 {
+        margin: .5rem 0 1.5rem;
+    }
+
+    a {
+        font-size: 1.4rem;
+
+        i {
+            margin-right: .5rem;
+            @include raleway;
+        }
+
+        @include bp($tablet) {
+            font-size: 1.8rem;
+        }
+    }
+
+    p {
+        line-height: 1.4;
+
+        a.contact-link {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+            text-decoration: none;
+        }
+
+        &:first-of-type {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        @include bp($tablet) {
+            br {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+footer {
+    background: transparent;
+    height: 3.5rem;
+    margin-top: -8rem;
+    color: var(--white);
+
+    @include bp($desktop-md) {
+        margin-top: -3.5rem;
+    }
+
+    .content-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    a,small {
+        color: var(--white);
+        text-decoration: none;
+        font-size: 1.2rem;
+        @include raleway;
+    }
+}

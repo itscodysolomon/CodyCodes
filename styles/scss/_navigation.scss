@@ -1,0 +1,115 @@
+nav {
+    background: var(--white-bg);
+    padding: 1.55rem 1.8rem 1.15rem 2.5rem;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    transition: background .15s;
+    // for iphone bottom bar navigation
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+
+    @include bp($tablet) {
+        padding: 2rem 4rem 2rem;
+    }
+
+    @include bp($desktop-md) {
+        padding: 2rem 4rem 2rem;
+        position: absolute;
+        top: 0;
+        bottom: auto;
+        right: 0;
+        display: flex;
+        justify-content: flex-end;
+        background: none;
+        margin-top: 1rem;
+
+        ul {
+            max-width: 40rem;
+        }
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include bp($tablet) {
+            justify-content: flex-end;
+        }
+
+
+        .nav-item:last-of-type {
+            padding-right: 0;
+            margin-bottom: -0.25rem;
+            padding: 0;
+
+            a {
+                font-size: 2rem;
+                cursor: pointer;
+
+                &:after {
+                    content: none;
+                }
+            }
+
+            @include bp($tablet) {
+                margin-bottom: -.75rem;
+
+                a {
+                    font-size: 2.2rem;
+                }
+            }
+
+            @include bp($desktop) {
+                margin-bottom: 0;
+            }
+        }
+
+
+        .nav-item {
+            @include bp($tablet) {
+                padding-right: 7rem;
+            }
+        }
+
+        a {
+            @include cabin-bold;
+            text-decoration: none;
+            color: var(--nav-text);
+            font-size: 1.8rem;
+            transition: color .15s;
+            position: relative;
+
+            @include bp($tablet) {
+                font-size: 2.2rem;
+            }
+
+            @include bp($desktop-md) {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: 0%;
+                    height: 3px;
+                    background: var(--nav-text);
+                    bottom: 0;
+                    left: 0;
+                    margin-bottom: -.15rem;
+                    transition: width .2s;
+                    transition-delay: .2s;
+                }
+
+                &:hover {
+                    &:after {
+                        width: 100%;
+                        transition: width .2s;
+                        transition-delay: .2s;
+                    }
+                }
+            }
+
+
+        }
+    }
+}

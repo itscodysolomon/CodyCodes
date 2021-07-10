@@ -1,0 +1,62 @@
+// colors
+$white: #fff;
+$primary: #6A64D3;
+$text-grey: #656565;
+
+// using CSS variables for easier Dark Mode integration
+html {
+    --white: #fff;
+    --primary: #6A64D3;
+    --primary-dark: #151345;
+    --text-primary: var(--primary);
+    --text-grey: #656565;
+    --white-bg: var(--white);
+    --intro-txt-color: var(--text-grey);
+    --nav-text: var(--primary);
+    --content-primary-bg: var(--primary);
+    --card-bg: var(--white);
+    --card-txt: var(--text-grey);
+
+    &[data-theme="dark"] {
+        --white-bg: var(--primary-dark);
+        --intro-txt-color: var(--white);
+        --projects-bg: var(--primary-dark);
+        --nav-text: var(--white);
+        --content-primary-bg: var(--primary-dark);
+        --card-bg: rgba(106, 100, 211, .2);
+        --card-txt: var(--white);
+    }
+}
+
+// utility classes
+.bg-primary {
+    background: var(--content-primary-bg);
+    color: $white;
+    transition: background .15s;
+}
+
+.text-primary {
+    color: $primary;
+}
+
+.text-white {
+    color: $white;
+}
+
+// Media Query Mixins
+$tablet: 768px;
+$desktop: 1024px;
+$desktop-md: 1366px;
+$desktop-lg: 1440px;
+
+@mixin bp ($size) {
+    @media screen and (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin ipadProPortrait {
+    @media screen and (width: 1024px) and (height: 1366px) {
+        @content;
+    }
+}

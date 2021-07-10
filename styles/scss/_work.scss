@@ -1,0 +1,145 @@
+#work {
+    padding-top: 3.5rem;
+
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2.5rem;
+
+        @include bp($desktop-md) {
+            flex-direction: row;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            background-position: 50% 1000px;
+            background-size: cover;
+            border-radius: 1rem;
+            margin-bottom: 4rem;
+            padding: 1.25rem 2rem 2rem;
+            transition: background .15s, background-position .35s;
+
+            @include bp($desktop-md) {
+                padding: 1.5rem 2.75rem 2.5rem;
+                margin-right: 2rem;
+                width: 33.3333%;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
+
+            &:first-of-type.preview {
+                background-image: url('../../assets/work/NewTabRotate.gif');
+            }
+
+            &:nth-of-type(2).preview {
+                background-image: url('../../assets/work/NoteBro.gif');
+            }
+
+            &:last-of-type.preview {
+                background-image: url('../../assets/work/SmokeyGringo.gif');
+            }
+
+            &.preview {
+                background: black;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: 50%;
+                transition: background .15s ease-in-out, background-position .35s ease-in-out;
+
+                p, a {
+                    opacity: 0;
+                }
+
+                .card-ctas a {
+                    display: inline-flex;
+                    pointer-events: none;
+                }
+            }
+        }
+
+        .card-title {
+            font-size: 2.4rem;
+            margin-bottom: .5rem;
+            @include raleway-semi;
+            display: flex;
+            align-items: center;
+
+            @include bp($tablet) {
+                font-size: 3rem;
+            }
+
+            button {
+                background: none;
+                border: none;
+                font-size: 2.2rem;
+                display: flex;
+                align-items: center;
+                margin-left: .75rem;
+                color: $primary;
+                cursor: pointer;
+            }
+        }
+
+        .card-description {
+            margin-bottom: 2rem;
+
+            @include bp($desktop) {
+                min-height: 20rem;
+            }
+        }
+
+        .card-title,
+        .card-description {
+            color: var(--card-txt);
+            transition: color .15s;
+        }
+
+        .card-ctas {
+            margin-top: 3rem;
+
+            a {
+                background: $primary;
+                padding: 1.15rem 1.25rem;
+                border-radius: 1.25rem;
+                @include cabin-bold;
+                font-size: 1.6rem;
+                color: $white;
+                text-transform: uppercase;
+                text-decoration: none;
+                margin-right: .5rem;
+                min-width: 8rem;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                transition: background .25s ease-in-out;
+
+                &:hover {
+                    background: darken($primary, 7);
+                }
+
+                i {
+                    margin-right: 1.25rem;
+                }
+
+                @include bp($tablet) {
+                    font-size: 2rem;
+                    min-width: 8rem;
+                    padding: 2rem 3rem;
+                    margin-right: 1rem;
+                }
+
+                @include bp($desktop) {
+                    padding: 1.75rem 2rem;
+                    font-size: 1.6rem;
+                }
+
+                @include bp($desktop-lg) {
+                    padding: 1.75rem 2.75rem;
+                }
+            }
+        }
+    }
+}
