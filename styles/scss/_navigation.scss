@@ -52,6 +52,15 @@ nav {
                 &:after {
                     content: none;
                 }
+
+                i {
+                    display: inline-block;
+                    transition: transform .25s ease-in-out;
+                }
+
+                &:hover i{
+                    transform: scale(1.2) rotate(30deg);
+                }
             }
 
             @include bp($tablet) {
@@ -64,14 +73,24 @@ nav {
 
             @include bp($desktop) {
                 margin-bottom: 0;
+
+                
             }
         }
 
 
         .nav-item {
+            opacity: 0;
+            animation-duration: .5s;
+            animation-delay: 2.8s;
+            animation-fill-mode: forwards;
+
             @include bp($tablet) {
                 padding-right: 7rem;
+                @include fadeIn($direction: right);
             }
+
+            @include fadeIn($direction: up);
         }
 
         a {

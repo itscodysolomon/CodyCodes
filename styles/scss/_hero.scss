@@ -15,9 +15,11 @@
         p,
         small {
             opacity: 0;
-            animation-name: fadeInText;
             animation-fill-mode: forwards;
             animation-duration: .25s;
+            animation-delay: 2.8s;
+
+            @include fadeIn($direction: left);
         }
 
         h1 {
@@ -30,12 +32,6 @@
             span:last-of-type {
                 animation-delay: 1.5s;
             }
-        }
-
-        h2,
-        p,
-        small {
-            animation-delay: 3s;
         }
 
         small {
@@ -75,6 +71,23 @@
     }
 
     #hero-light {
+        transform: scale(0);
+        animation-name: headZoom;
+        animation-duration: .15s;
+        animation-delay: 1.51s;
+        animation-fill-mode: forwards;
+
+        @keyframes headZoom {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
 
         #cody {
             margin-top: 5rem;
@@ -202,20 +215,11 @@
     }
 
     #hero-dark {
-        animation-name: fadeIn;
         animation-fill-mode: forwards;
         animation-duration: .15s;
         animation-delay: .15s;
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
+        @include fadeIn($direction: false);
 
         #cody-dark {
             margin-top: 13.5rem;
@@ -344,17 +348,6 @@
         min-width: 100%;
         min-height: 100%;
     }
-
-    @keyframes fadeInText {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
 }
 
 html {
@@ -376,7 +369,7 @@ html {
 
     &[data-theme="dark"] {
         #hero #hero-light {
-            opacity: 0;
+            opacity: 0 !important;
             pointer-events: none;
             transition: opacity .05s;
         }

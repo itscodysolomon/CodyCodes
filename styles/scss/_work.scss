@@ -118,6 +118,7 @@
 
                 &:hover {
                     background: darken($primary, 7);
+                    filter: none;
                 }
 
                 i {
