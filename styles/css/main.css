@@ -282,12 +282,35 @@ body {
       @media screen and (min-width: 768px) {
         #hero #intro p {
           font-size: 2rem; } }
-  #hero #hero-light {
-    transform: scale(0);
-    animation-name: headZoom;
-    animation-duration: .15s;
-    animation-delay: 1.51s;
-    animation-fill-mode: forwards; }
+  #hero #hero-light #cody {
+    margin-top: 5rem;
+    transform: scale(0.43); }
+    @media screen and (min-width: 768px) {
+      #hero #hero-light #cody {
+        transform: scale(0.8);
+        margin-top: 20rem; } }
+    @media screen and (min-width: 1024px) {
+      #hero #hero-light #cody {
+        margin-top: 15rem; } }
+    @media screen and (min-width: 1366px) {
+      #hero #hero-light #cody {
+        transform: scale(1.1);
+        margin-top: 20rem; } }
+    @media screen and (width: 1024px) and (height: 1366px) {
+      #hero #hero-light #cody {
+        margin-top: 10rem;
+        transform: scale(1.2); } }
+    @media screen and (min-width: 1440px) {
+      #hero #hero-light #cody {
+        margin-top: 10rem; } }
+    #hero #hero-light #cody #cody-head {
+      position: relative;
+      width: 400px;
+      transform: scale(0);
+      animation-name: headZoom;
+      animation-duration: .15s;
+      animation-delay: 1.51s;
+      animation-fill-mode: forwards; }
 @keyframes headZoom {
   0% {
     transform: scale(0);
@@ -295,97 +318,73 @@ body {
   100% {
     transform: scale(1);
     opacity: 1; } }
-    #hero #hero-light #cody {
-      margin-top: 5rem;
-      transform: scale(0.43); }
-      @media screen and (min-width: 768px) {
-        #hero #hero-light #cody {
-          transform: scale(0.8);
-          margin-top: 20rem; } }
-      @media screen and (min-width: 1024px) {
-        #hero #hero-light #cody {
-          margin-top: 15rem; } }
-      @media screen and (min-width: 1366px) {
-        #hero #hero-light #cody {
-          transform: scale(1.1);
-          margin-top: 20rem; } }
-      @media screen and (width: 1024px) and (height: 1366px) {
-        #hero #hero-light #cody {
-          margin-top: 10rem;
-          transform: scale(1.2); } }
-      @media screen and (min-width: 1440px) {
-        #hero #hero-light #cody {
-          margin-top: 10rem; } }
-      #hero #hero-light #cody #cody-head {
-        position: relative;
-        width: 400px; }
-        #hero #hero-light #cody #cody-head #head-img {
-          width: 100%;
-          pointer-events: none;
-          z-index: 3;
-          position: relative; }
-        #hero #hero-light #cody #cody-head #thanks {
-          position: absolute;
-          top: 0;
-          right: 0;
-          font-family: 'Cabin', sans-serif;
-          font-weight: 700;
-          color: #6A64D3;
-          font-size: 1.8rem;
-          display: none; }
-        #hero #hero-light #cody #cody-head .eyes #left-eye,
-        #hero #hero-light #cody #cody-head .eyes #right-eye {
-          position: absolute;
-          z-index: 2;
-          background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.57) 50%);
-          transition: transform .15s; }
-          @media screen and (min-width: 768px) {
-            #hero #hero-light #cody #cody-head .eyes #left-eye,
-            #hero #hero-light #cody #cody-head .eyes #right-eye {
-              background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 40%); } }
-        #hero #hero-light #cody #cody-head .eyes #left-eye {
-          top: 189px;
-          left: 117px;
-          width: 94px; }
-        #hero #hero-light #cody #cody-head .eyes #right-eye {
-          top: 189px;
-          left: 221px;
-          width: 94px; }
-        #hero #hero-light #cody #cody-head .eyes img.laser-active {
-          opacity: 0;
-          transition: opacity .5s ease-in-out; }
-        #hero #hero-light #cody #cody-head .eyes .eye-glow {
-          top: 187px;
-          display: block;
-          position: absolute;
-          transform: translateY(18px);
+      #hero #hero-light #cody #cody-head #head-img {
+        width: 100%;
+        pointer-events: none;
+        z-index: 3;
+        position: relative; }
+      #hero #hero-light #cody #cody-head #thanks {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-family: 'Cabin', sans-serif;
+        font-weight: 700;
+        color: #6A64D3;
+        font-size: 1.8rem;
+        display: none; }
+      #hero #hero-light #cody #cody-head .eyes #left-eye,
+      #hero #hero-light #cody #cody-head .eyes #right-eye {
+        position: absolute;
+        z-index: 2;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.57) 50%);
+        transition: transform .15s; }
+        @media screen and (min-width: 768px) {
+          #hero #hero-light #cody #cody-head .eyes #left-eye,
+          #hero #hero-light #cody #cody-head .eyes #right-eye {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 40%); } }
+      #hero #hero-light #cody #cody-head .eyes #left-eye {
+        top: 189px;
+        left: 117px;
+        width: 94px; }
+      #hero #hero-light #cody #cody-head .eyes #right-eye {
+        top: 189px;
+        left: 221px;
+        width: 94px; }
+      #hero #hero-light #cody #cody-head .eyes img.laser-active {
+        opacity: 0;
+        transition: opacity .5s ease-in-out; }
+      #hero #hero-light #cody #cody-head .eyes .eye-glow {
+        top: 187px;
+        display: block;
+        position: absolute;
+        transform: translateY(18px);
+        background: turquoise;
+        height: 32px;
+        border-radius: 50%;
+        z-index: 10;
+        filter: blur(5px);
+        width: 60px;
+        opacity: 0;
+        transition: opacity 1s; }
+        #hero #hero-light #cody #cody-head .eyes .eye-glow.laser-active {
+          opacity: 1; }
+      #hero #hero-light #cody #cody-head .eyes div.eye-glow:first-of-type {
+        left: 134px; }
+      #hero #hero-light #cody #cody-head .eyes div.eye-glow:last-of-type {
+        left: 237px; }
+      #hero #hero-light #cody #cody-head .eye-back {
+        background: white;
+        width: 53%;
+        height: 20%;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-46%, -74%);
+        z-index: 1; }
+        #hero #hero-light #cody #cody-head .eye-back.laser-active {
           background: turquoise;
-          height: 32px;
-          border-radius: 50%;
-          z-index: 10;
-          filter: blur(5px);
-          width: 60px;
-          opacity: 0;
-          transition: opacity 1s; }
-          #hero #hero-light #cody #cody-head .eyes .eye-glow.laser-active {
-            opacity: 1; }
-        #hero #hero-light #cody #cody-head .eyes div.eye-glow:first-of-type {
-          left: 134px; }
-        #hero #hero-light #cody #cody-head .eyes div.eye-glow:last-of-type {
-          left: 237px; }
-        #hero #hero-light #cody #cody-head .eye-back {
-          background: white;
-          width: 53%;
-          height: 20%;
-          display: block;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-46%, -74%);
-          z-index: 1; }
-          #hero #hero-light #cody #cody-head .eye-back.laser-active {
-            background: turquoise;
-            transition: background .05s ease-in-out; }
+          transition: background .05s ease-in-out; }
   #hero #hero-dark {
     animation-fill-mode: forwards;
     animation-duration: .15s;
