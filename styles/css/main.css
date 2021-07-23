@@ -337,8 +337,12 @@ body {
         #hero #hero-light #cody #cody-head .eyes #right-eye {
           position: absolute;
           z-index: 2;
-          background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 40%);
+          background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.57) 45%);
           transition: transform .15s; }
+          @media screen and (min-width: 768px) {
+            #hero #hero-light #cody #cody-head .eyes #left-eye,
+            #hero #hero-light #cody #cody-head .eyes #right-eye {
+              background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 40%); } }
         #hero #hero-light #cody #cody-head .eyes #left-eye {
           top: 189px;
           left: 117px;
