@@ -231,8 +231,7 @@ body {
   background: var(--white-bg);
   position: relative;
   transition: background .15s;
-  z-index: 2;
-  min-height: 100vh; }
+  z-index: 2; }
   #hero #intro {
     color: var(--intro-txt-color);
     position: absolute;
