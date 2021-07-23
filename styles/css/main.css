@@ -666,7 +666,7 @@ html[data-theme="dark"] canvas {
       border-radius: 1rem;
       margin-bottom: 4rem;
       padding: 1.25rem 2rem 2rem;
-      transition: background .15s, background-position .35s; }
+      position: relative; }
       @media screen and (min-width: 1366px) {
         #work .card-container .card {
           padding: 1.5rem 2.75rem 2.5rem;
@@ -674,23 +674,12 @@ html[data-theme="dark"] canvas {
           width: 33.3333%; }
           #work .card-container .card:last-of-type {
             margin-right: 0; } }
-      #work .card-container .card:first-of-type.preview {
+      #work .card-container .card:first-of-type .card-preview:before {
         background-image: url("../../assets/work/NewTabRotate.gif"); }
-      #work .card-container .card:nth-of-type(2).preview {
+      #work .card-container .card:nth-of-type(2) .card-preview:before {
         background-image: url("../../assets/work/NoteBro.gif"); }
-      #work .card-container .card:last-of-type.preview {
+      #work .card-container .card:last-of-type .card-preview:before {
         background-image: url("../../assets/work/SmokeyGringo.gif"); }
-      #work .card-container .card.preview {
-        background: black;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        transition: background .15s ease-in-out, background-position .35s ease-in-out; }
-        #work .card-container .card.preview p, #work .card-container .card.preview a {
-          opacity: 0; }
-        #work .card-container .card.preview .card-ctas a {
-          display: inline-flex;
-          pointer-events: none; }
     #work .card-container .card-title {
       font-size: 2.4rem;
       margin-bottom: .5rem;
@@ -710,6 +699,32 @@ html[data-theme="dark"] canvas {
         margin-left: .75rem;
         color: #6A64D3;
         cursor: pointer; }
+    #work .card-container .card-preview p,
+    #work .card-container .card-preview a {
+      opacity: 0; }
+    #work .card-container .card-preview .card-ctas a {
+      display: inline-flex;
+      pointer-events: none; }
+    #work .card-container .card-preview:before {
+      visibility: hidden;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      background: black;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      opacity: 0;
+      transition: all .5s ease-in-out .15s; }
+    #work .card-container .card-preview:hover:before {
+      opacity: 1;
+      visibility: visible; }
     #work .card-container .card-description {
       margin-bottom: 2rem; }
       @media screen and (min-width: 1024px) {

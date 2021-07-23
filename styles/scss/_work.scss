@@ -18,7 +18,7 @@
             border-radius: 1rem;
             margin-bottom: 4rem;
             padding: 1.25rem 2rem 2rem;
-            transition: background .15s, background-position .35s;
+            position: relative;
 
             @include bp($desktop-md) {
                 padding: 1.5rem 2.75rem 2.5rem;
@@ -30,33 +30,16 @@
                 }
             }
 
-            &:first-of-type.preview {
+            &:first-of-type .card-preview:before {
                 background-image: url('../../assets/work/NewTabRotate.gif');
             }
 
-            &:nth-of-type(2).preview {
+            &:nth-of-type(2) .card-preview:before {
                 background-image: url('../../assets/work/NoteBro.gif');
             }
 
-            &:last-of-type.preview {
+            &:last-of-type .card-preview:before {
                 background-image: url('../../assets/work/SmokeyGringo.gif');
-            }
-
-            &.preview {
-                background: black;
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: 50%;
-                transition: background .15s ease-in-out, background-position .35s ease-in-out;
-
-                p, a {
-                    opacity: 0;
-                }
-
-                .card-ctas a {
-                    display: inline-flex;
-                    pointer-events: none;
-                }
             }
         }
 
@@ -80,6 +63,45 @@
                 margin-left: .75rem;
                 color: $primary;
                 cursor: pointer;
+            }
+        }
+
+        .card-preview {
+
+            p,
+            a {
+                opacity: 0;
+            }
+
+            .card-ctas a {
+                display: inline-flex;
+                pointer-events: none;
+            }
+
+            &:before {
+                visibility: hidden;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 1rem;
+                background: black;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: 50%;
+                opacity: 0;
+                transition: all .5s ease-in-out .15s;
+            }
+
+            &:hover {
+                &:before {
+                    opacity: 1;
+                    visibility: visible;
+                }
             }
         }
 
