@@ -71,23 +71,6 @@
     }
 
     #hero-light {
-        transform: scale(0);
-        animation-name: headZoom;
-        animation-duration: .15s;
-        animation-delay: 1.51s;
-        animation-fill-mode: forwards;
-
-        @keyframes headZoom {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
 
         #cody {
             margin-top: 5rem;
@@ -120,6 +103,24 @@
                 position: relative;
                 width: 400px;
 
+                transform: scale(0);
+                animation-name: headZoom;
+                animation-duration: .15s;
+                animation-delay: 1.51s;
+                animation-fill-mode: forwards;
+
+                @keyframes headZoom {
+                    0% {
+                        transform: scale(0);
+                        opacity: 0;
+                    }
+
+                    100% {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                }
+
                 #head-img {
                     width: 100%;
                     pointer-events: none;
@@ -149,7 +150,7 @@
 
                         @include bp($tablet) {
                             background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 40%);
-                            ;   
+                            ;
                         }
                     }
 
