@@ -60,3 +60,67 @@ $desktop-lg: 1440px;
         @content;
     }
 }
+
+@mixin fadey($direction) {
+    @keyframes fadey {
+        0% {
+            @if $direction==up {
+                transform: translateY(50px);
+            }
+
+            @else if $direction==down {
+                transform: translateY(-50px);
+            }
+
+            @else if $direction==left {
+                transform: translateX(-100px);
+            }
+
+            @else if $direction==right {
+                transform: translateX(100px);
+            }
+
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    }
+}
+
+@mixin fadeIn($direction) {
+    $name: fadeIn + if($direction != false, '-' + $direction, '');
+    animation-name: $name;
+    
+
+    @keyframes #{$name} {
+        0% {
+            @if $direction==right {
+                transform: translateX(200px);
+            }
+
+            @else if $direction==left {
+                transform: translateX(-200px);
+            }
+
+            @else if $direction==up {
+                transform: translateY(100px);
+            }
+
+            @else if $direction==down {
+                transform: translateY(-100px);
+            }
+
+            @else {
+                opacity: 0;
+            }
+        }
+
+        100% {
+            transform: translateX(0px) translateY(0px);
+            opacity: 1;
+        }
+    }
+}

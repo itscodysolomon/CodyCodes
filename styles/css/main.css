@@ -72,6 +72,11 @@ nav {
         cursor: pointer; }
         nav ul .nav-item:last-of-type a:after {
           content: none; }
+        nav ul .nav-item:last-of-type a i {
+          display: inline-block;
+          transition: transform .25s ease-in-out; }
+        nav ul .nav-item:last-of-type a:hover i {
+          transform: scale(1.2) rotate(30deg); }
       @media screen and (min-width: 768px) {
         nav ul .nav-item:last-of-type {
           margin-bottom: -.75rem; }
@@ -80,9 +85,28 @@ nav {
       @media screen and (min-width: 1024px) {
         nav ul .nav-item:last-of-type {
           margin-bottom: 0; } }
-    @media screen and (min-width: 768px) {
-      nav ul .nav-item {
-        padding-right: 7rem; } }
+    nav ul .nav-item {
+      opacity: 0;
+      animation-duration: .5s;
+      animation-delay: 2.8s;
+      animation-fill-mode: forwards;
+      animation-name: fadeIn-up; }
+      @media screen and (min-width: 768px) {
+        nav ul .nav-item {
+          padding-right: 7rem;
+          animation-name: fadeIn-right; }
+        @keyframes fadeIn-right {
+          0% {
+            transform: translateX(200px); }
+          100% {
+            transform: translateX(0px) translateY(0px);
+            opacity: 1; } } }
+@keyframes fadeIn-up {
+  0% {
+    transform: translateY(100px); }
+  100% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 1; } }
     nav ul a {
       font-family: 'Cabin', sans-serif;
       font-weight: 700;
@@ -190,7 +214,11 @@ body {
     color: inherit;
     text-decoration: underline;
     font-family: 'Raleway', sans-serif;
-    font-weight: 600; }
+    font-weight: 600;
+    transition: all .25s; }
+    html a:hover,
+    body a:hover {
+      filter: brightness(80%); }
 
 .content-wrap {
   max-width: 1800px;
@@ -203,7 +231,8 @@ body {
   background: var(--white-bg);
   position: relative;
   transition: background .15s;
-  z-index: 2; }
+  z-index: 2;
+  min-height: 100vh; }
   #hero #intro {
     color: var(--intro-txt-color);
     position: absolute;
@@ -213,19 +242,22 @@ body {
     #hero #intro p,
     #hero #intro small {
       opacity: 0;
-      animation-name: fadeInText;
       animation-fill-mode: forwards;
-      animation-duration: .25s; }
+      animation-duration: .25s;
+      animation-delay: 2.8s;
+      animation-name: fadeIn-left; }
+@keyframes fadeIn-left {
+  0% {
+    transform: translateX(-200px); }
+  100% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 1; } }
     #hero #intro h1 {
       margin-left: -.25rem; }
       #hero #intro h1 span:first-of-type {
         animation-delay: .5s; }
       #hero #intro h1 span:last-of-type {
         animation-delay: 1.5s; }
-    #hero #intro h2,
-    #hero #intro p,
-    #hero #intro small {
-      animation-delay: 3s; }
     #hero #intro small {
       font-size: 1.3rem;
       margin-top: .8rem; }
@@ -251,102 +283,116 @@ body {
       @media screen and (min-width: 768px) {
         #hero #intro p {
           font-size: 2rem; } }
-  #hero #hero-light #cody {
-    margin-top: 5rem;
-    transform: scale(0.43); }
-    @media screen and (min-width: 768px) {
-      #hero #hero-light #cody {
-        transform: scale(0.8);
-        margin-top: 20rem; } }
-    @media screen and (min-width: 1024px) {
-      #hero #hero-light #cody {
-        margin-top: 15rem; } }
-    @media screen and (min-width: 1366px) {
-      #hero #hero-light #cody {
-        transform: scale(1.1);
-        margin-top: 20rem; } }
-    @media screen and (width: 1024px) and (height: 1366px) {
-      #hero #hero-light #cody {
-        margin-top: 10rem;
-        transform: scale(1.2); } }
-    @media screen and (min-width: 1440px) {
-      #hero #hero-light #cody {
-        margin-top: 10rem; } }
-    #hero #hero-light #cody #cody-head {
-      position: relative;
-      width: 400px; }
-      #hero #hero-light #cody #cody-head #head-img {
-        width: 100%;
-        pointer-events: none;
-        z-index: 3;
-        position: relative; }
-      #hero #hero-light #cody #cody-head #thanks {
-        position: absolute;
-        top: 0;
-        right: 0;
-        font-family: 'Cabin', sans-serif;
-        font-weight: 700;
-        color: #6A64D3;
-        font-size: 1.8rem;
-        display: none; }
-      #hero #hero-light #cody #cody-head .eyes #left-eye,
-      #hero #hero-light #cody #cody-head .eyes #right-eye {
-        position: absolute;
-        z-index: 2;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 40%);
-        transition: transform .15s; }
-      #hero #hero-light #cody #cody-head .eyes #left-eye {
-        top: 189px;
-        left: 117px;
-        width: 94px; }
-      #hero #hero-light #cody #cody-head .eyes #right-eye {
-        top: 189px;
-        left: 221px;
-        width: 94px; }
-      #hero #hero-light #cody #cody-head .eyes img.laser-active {
-        opacity: 0;
-        transition: opacity .5s ease-in-out; }
-      #hero #hero-light #cody #cody-head .eyes .eye-glow {
-        top: 187px;
-        display: block;
-        position: absolute;
-        transform: translateY(18px);
-        background: turquoise;
-        height: 32px;
-        border-radius: 50%;
-        z-index: 10;
-        filter: blur(5px);
-        width: 60px;
-        opacity: 0;
-        transition: opacity 1s; }
-        #hero #hero-light #cody #cody-head .eyes .eye-glow.laser-active {
-          opacity: 1; }
-      #hero #hero-light #cody #cody-head .eyes div.eye-glow:first-of-type {
-        left: 134px; }
-      #hero #hero-light #cody #cody-head .eyes div.eye-glow:last-of-type {
-        left: 237px; }
-      #hero #hero-light #cody #cody-head .eye-back {
-        background: white;
-        width: 53%;
-        height: 20%;
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-46%, -74%);
-        z-index: 1; }
-        #hero #hero-light #cody #cody-head .eye-back.laser-active {
+  #hero #hero-light {
+    transform: scale(0);
+    animation-name: headZoom;
+    animation-duration: .15s;
+    animation-delay: 1.51s;
+    animation-fill-mode: forwards; }
+@keyframes headZoom {
+  0% {
+    transform: scale(0);
+    opacity: 0; }
+  100% {
+    transform: scale(1);
+    opacity: 1; } }
+    #hero #hero-light #cody {
+      margin-top: 5rem;
+      transform: scale(0.43); }
+      @media screen and (min-width: 768px) {
+        #hero #hero-light #cody {
+          transform: scale(0.8);
+          margin-top: 20rem; } }
+      @media screen and (min-width: 1024px) {
+        #hero #hero-light #cody {
+          margin-top: 15rem; } }
+      @media screen and (min-width: 1366px) {
+        #hero #hero-light #cody {
+          transform: scale(1.1);
+          margin-top: 20rem; } }
+      @media screen and (width: 1024px) and (height: 1366px) {
+        #hero #hero-light #cody {
+          margin-top: 10rem;
+          transform: scale(1.2); } }
+      @media screen and (min-width: 1440px) {
+        #hero #hero-light #cody {
+          margin-top: 10rem; } }
+      #hero #hero-light #cody #cody-head {
+        position: relative;
+        width: 400px; }
+        #hero #hero-light #cody #cody-head #head-img {
+          width: 100%;
+          pointer-events: none;
+          z-index: 3;
+          position: relative; }
+        #hero #hero-light #cody #cody-head #thanks {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-family: 'Cabin', sans-serif;
+          font-weight: 700;
+          color: #6A64D3;
+          font-size: 1.8rem;
+          display: none; }
+        #hero #hero-light #cody #cody-head .eyes #left-eye,
+        #hero #hero-light #cody #cody-head .eyes #right-eye {
+          position: absolute;
+          z-index: 2;
+          background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 40%);
+          transition: transform .15s; }
+        #hero #hero-light #cody #cody-head .eyes #left-eye {
+          top: 189px;
+          left: 117px;
+          width: 94px; }
+        #hero #hero-light #cody #cody-head .eyes #right-eye {
+          top: 189px;
+          left: 221px;
+          width: 94px; }
+        #hero #hero-light #cody #cody-head .eyes img.laser-active {
+          opacity: 0;
+          transition: opacity .5s ease-in-out; }
+        #hero #hero-light #cody #cody-head .eyes .eye-glow {
+          top: 187px;
+          display: block;
+          position: absolute;
+          transform: translateY(18px);
           background: turquoise;
-          transition: background .05s ease-in-out; }
+          height: 32px;
+          border-radius: 50%;
+          z-index: 10;
+          filter: blur(5px);
+          width: 60px;
+          opacity: 0;
+          transition: opacity 1s; }
+          #hero #hero-light #cody #cody-head .eyes .eye-glow.laser-active {
+            opacity: 1; }
+        #hero #hero-light #cody #cody-head .eyes div.eye-glow:first-of-type {
+          left: 134px; }
+        #hero #hero-light #cody #cody-head .eyes div.eye-glow:last-of-type {
+          left: 237px; }
+        #hero #hero-light #cody #cody-head .eye-back {
+          background: white;
+          width: 53%;
+          height: 20%;
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-46%, -74%);
+          z-index: 1; }
+          #hero #hero-light #cody #cody-head .eye-back.laser-active {
+            background: turquoise;
+            transition: background .05s ease-in-out; }
   #hero #hero-dark {
-    animation-name: fadeIn;
     animation-fill-mode: forwards;
     animation-duration: .15s;
-    animation-delay: .15s; }
+    animation-delay: .15s;
+    animation-name: fadeIn; }
 @keyframes fadeIn {
   0% {
     opacity: 0; }
   100% {
+    transform: translateX(0px) translateY(0px);
     opacity: 1; } }
     #hero #hero-dark #cody-dark {
       margin-top: 13.5rem;
@@ -440,11 +486,7 @@ body {
     bottom: 0;
     min-width: 100%;
     min-height: 100%; }
-@keyframes fadeInText {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
+
 html #hero #hero-light {
   opacity: 1;
   transition: opacity 1s; }
@@ -456,7 +498,7 @@ html #hero #intro small {
   display: inline-block;
   opacity: 1; }
 html[data-theme="dark"] #hero #hero-light {
-  opacity: 0;
+  opacity: 0 !important;
   pointer-events: none;
   transition: opacity .05s; }
 html[data-theme="dark"] #hero #hero-dark {
@@ -495,10 +537,11 @@ html[data-theme="dark"] canvas {
   transform: rotate(90deg);
   width: 25px;
   height: 25px;
-  animation-name: fadeIn;
+  animation-name: fadeInBug;
   animation-duration: 2s;
+  animation-delay: 3.75s;
+  animation-fill-mode: backwards;
   cursor: crosshair;
-  transition: opacity .5s;
   opacity: 1; }
 
 #body {
@@ -593,7 +636,7 @@ html[data-theme="dark"] canvas {
     transform: scale(0.8); }
   100% {
     transform: scale(1); } }
-@keyframes fadeIn {
+@keyframes fadeInBug {
   0% {
     opacity: 0;
     width: 0px;
@@ -624,7 +667,7 @@ html[data-theme="dark"] canvas {
       border-radius: 1rem;
       margin-bottom: 4rem;
       padding: 1.25rem 2rem 2rem;
-      transition: background .15s, background-position .35s; }
+      position: relative; }
       @media screen and (min-width: 1366px) {
         #work .card-container .card {
           padding: 1.5rem 2.75rem 2.5rem;
@@ -632,23 +675,12 @@ html[data-theme="dark"] canvas {
           width: 33.3333%; }
           #work .card-container .card:last-of-type {
             margin-right: 0; } }
-      #work .card-container .card:first-of-type.preview {
+      #work .card-container .card:first-of-type .card-preview:before {
         background-image: url("../../assets/work/NewTabRotate.gif"); }
-      #work .card-container .card:nth-of-type(2).preview {
+      #work .card-container .card:nth-of-type(2) .card-preview:before {
         background-image: url("../../assets/work/NoteBro.gif"); }
-      #work .card-container .card:last-of-type.preview {
+      #work .card-container .card:last-of-type .card-preview:before {
         background-image: url("../../assets/work/SmokeyGringo.gif"); }
-      #work .card-container .card.preview {
-        background: black;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        transition: background .15s ease-in-out, background-position .35s ease-in-out; }
-        #work .card-container .card.preview p, #work .card-container .card.preview a {
-          opacity: 0; }
-        #work .card-container .card.preview .card-ctas a {
-          display: inline-flex;
-          pointer-events: none; }
     #work .card-container .card-title {
       font-size: 2.4rem;
       margin-bottom: .5rem;
@@ -668,6 +700,32 @@ html[data-theme="dark"] canvas {
         margin-left: .75rem;
         color: #6A64D3;
         cursor: pointer; }
+    #work .card-container .card-preview p,
+    #work .card-container .card-preview a {
+      opacity: 0; }
+    #work .card-container .card-preview .card-ctas a {
+      display: inline-flex;
+      pointer-events: none; }
+    #work .card-container .card-preview:before {
+      visibility: hidden;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      background: black;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      opacity: 0;
+      transition: all .5s ease-in-out .15s; }
+    #work .card-container .card-preview:hover:before {
+      opacity: 1;
+      visibility: visible; }
     #work .card-container .card-description {
       margin-bottom: 2rem; }
       @media screen and (min-width: 1024px) {
@@ -696,7 +754,8 @@ html[data-theme="dark"] canvas {
         align-items: center;
         transition: background .25s ease-in-out; }
         #work .card-container .card-ctas a:hover {
-          background: #4f48cb; }
+          background: #4f48cb;
+          filter: none; }
         #work .card-container .card-ctas a i {
           margin-right: 1.25rem; }
         @media screen and (min-width: 768px) {

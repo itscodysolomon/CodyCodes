@@ -81,6 +81,11 @@ body {
         color: inherit;
         text-decoration: underline;
         @include raleway-semi;
+        transition: all .25s;
+
+        &:hover {
+            filter: brightness(80%);
+        }
     }
 
 }
