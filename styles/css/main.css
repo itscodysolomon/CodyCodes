@@ -75,8 +75,9 @@ nav {
         nav ul .nav-item:last-of-type a i {
           display: inline-block;
           transition: transform .25s ease-in-out; }
-        nav ul .nav-item:last-of-type a:hover i {
-          transform: scale(1.2) rotate(30deg); }
+        @media (prefers-reduced-motion: no-preference) {
+          nav ul .nav-item:last-of-type a:hover i {
+            transform: scale(1.2) rotate(30deg); } }
       @media screen and (min-width: 768px) {
         nav ul .nav-item:last-of-type {
           margin-bottom: -.75rem; }
@@ -85,28 +86,9 @@ nav {
       @media screen and (min-width: 1024px) {
         nav ul .nav-item:last-of-type {
           margin-bottom: 0; } }
-    nav ul .nav-item {
-      opacity: 0;
-      animation-duration: .5s;
-      animation-delay: 2.8s;
-      animation-fill-mode: forwards;
-      animation-name: fadeIn-up; }
-      @media screen and (min-width: 768px) {
-        nav ul .nav-item {
-          padding-right: 7rem;
-          animation-name: fadeIn-right; }
-        @keyframes fadeIn-right {
-          0% {
-            transform: translateX(200px); }
-          100% {
-            transform: translateX(0px) translateY(0px);
-            opacity: 1; } } }
-@keyframes fadeIn-up {
-  0% {
-    transform: translateY(100px); }
-  100% {
-    transform: translateX(0px) translateY(0px);
-    opacity: 1; } }
+    @media screen and (min-width: 768px) {
+      nav ul .nav-item {
+        padding-right: 7rem; } }
     nav ul a {
       font-family: 'Cabin', sans-serif;
       font-weight: 700;
@@ -129,11 +111,12 @@ nav {
           left: 0;
           margin-bottom: -.15rem;
           transition: width .2s;
-          transition-delay: .2s; }
-        nav ul a:hover:after {
-          width: 100%;
-          transition: width .2s;
           transition-delay: .2s; } }
+@media screen and (min-width: 1366px) and (prefers-reduced-motion: no-preference) {
+  nav ul a:hover:after {
+    width: 100%;
+    transition: width .2s;
+    transition-delay: .2s; } }
 
 h1,
 h2,
@@ -243,14 +226,24 @@ body {
       opacity: 0;
       animation-fill-mode: forwards;
       animation-duration: .25s;
-      animation-delay: 2.8s;
-      animation-name: fadeIn-left; }
-@keyframes fadeIn-left {
-  0% {
-    transform: translateX(-200px); }
-  100% {
-    transform: translateX(0px) translateY(0px);
-    opacity: 1; } }
+      animation-delay: 3.8s; }
+      @media (prefers-reduced-motion: no-preference) {
+        #hero #intro h1 span,
+        #hero #intro h2,
+        #hero #intro p,
+        #hero #intro small {
+          animation-name: fadeIn; }
+        @keyframes fadeIn {
+          0% {
+            opacity: 0; }
+          100% {
+            opacity: 1; } } }
+      @media (prefers-reduced-motion: reduce) {
+        #hero #intro h1 span,
+        #hero #intro h2,
+        #hero #intro p,
+        #hero #intro small {
+          opacity: 1; } }
     #hero #intro h1 {
       margin-left: -.25rem; }
       #hero #intro h1 span:first-of-type {
@@ -281,7 +274,7 @@ body {
         color: #6A64D3; }
       @media screen and (min-width: 768px) {
         #hero #intro p {
-          font-size: 2rem; } }
+          font-size: 2.2rem; } }
   #hero #hero-light #cody {
     margin-top: 5rem;
     transform: scale(0.43); }
@@ -306,17 +299,21 @@ body {
     #hero #hero-light #cody #cody-head {
       position: relative;
       width: 400px;
-      transform: scale(0);
-      animation-name: headZoom;
-      animation-duration: .15s;
-      animation-delay: 1.51s;
-      animation-fill-mode: forwards; }
+      opacity: 1; }
+      @media (prefers-reduced-motion: no-preference) {
+        #hero #hero-light #cody #cody-head {
+          opacity: 0;
+          transform: translateY(150%);
+          animation: headZoom 2s ease-in 0.75s forwards; } }
 @keyframes headZoom {
   0% {
-    transform: translateY(200%) scale(0);
+    transform: translateY(150%);
+    opacity: 0; }
+  70% {
+    transform: translateY(150%);
     opacity: 0; }
   100% {
-    transform: translateY(0%) scale(1);
+    transform: translateY(0%);
     opacity: 1; } }
       #hero #hero-light #cody #cody-head #head-img {
         width: 100%;
@@ -388,14 +385,18 @@ body {
   #hero #hero-dark {
     animation-fill-mode: forwards;
     animation-duration: .15s;
-    animation-delay: .15s;
-    animation-name: fadeIn; }
-@keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    transform: translateX(0px) translateY(0px);
-    opacity: 1; } }
+    animation-delay: .15s; }
+    @media (prefers-reduced-motion: no-preference) {
+      #hero #hero-dark {
+        animation-name: fadeIn; }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0; }
+        100% {
+          opacity: 1; } } }
+    @media (prefers-reduced-motion: reduce) {
+      #hero #hero-dark {
+        opacity: 1; } }
     #hero #hero-dark #cody-dark {
       margin-top: 13.5rem;
       width: 50rem;
@@ -781,7 +782,7 @@ html[data-theme="dark"] canvas {
       font-size: 2rem; } }
   @media screen and (min-width: 1440px) {
     #about p {
-      width: 74%; } }
+      width: 54%; } }
   #about p:not(:last-of-type) {
     margin-bottom: 2rem; }
   #about p:nth-of-type(2) {

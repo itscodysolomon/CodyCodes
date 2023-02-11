@@ -17,9 +17,9 @@
             opacity: 0;
             animation-fill-mode: forwards;
             animation-duration: .25s;
-            animation-delay: 2.8s;
+            animation-delay: 3.8s;
 
-            @include fadeIn($direction: left);
+            @include fadeIn();
         }
 
         h1 {
@@ -65,7 +65,7 @@
             }
 
             @include bp($tablet) {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
         }
     }
@@ -102,21 +102,27 @@
             #cody-head {
                 position: relative;
                 width: 400px;
+                opacity: 1;
 
-                transform: scale(0);
-                animation-name: headZoom;
-                animation-duration: .15s;
-                animation-delay: 1.51s;
-                animation-fill-mode: forwards;
+                @media (prefers-reduced-motion: no-preference) {
+                    opacity: 0;
+                    transform: translateY(150%);
+                    animation: headZoom 2s ease-in 0.75s forwards;
+                }
 
                 @keyframes headZoom {
                     0% {
-                        transform: translateY(200%) scale(0);
+                        transform: translateY(150%) ;
+                        opacity: 0;
+                    }
+
+                    70% {
+                        transform: translateY(150%);
                         opacity: 0;
                     }
 
                     100% {
-                        transform: translateY(0%) scale(1);
+                        transform: translateY(0%);
                         opacity: 1;
                     }
                 }
@@ -224,7 +230,7 @@
         animation-duration: .15s;
         animation-delay: .15s;
 
-        @include fadeIn($direction: false);
+        @include fadeIn();
 
         #cody-dark {
             margin-top: 13.5rem;

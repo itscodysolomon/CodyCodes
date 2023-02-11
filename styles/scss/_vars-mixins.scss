@@ -90,37 +90,21 @@ $desktop-lg: 1440px;
     }
 }
 
-@mixin fadeIn($direction) {
-    $name: fadeIn + if($direction != false, '-' + $direction, '');
-    animation-name: $name;
-    
-
-    @keyframes #{$name} {
-        0% {
-            @if $direction==right {
-                transform: translateX(200px);
-            }
-
-            @else if $direction==left {
-                transform: translateX(-200px);
-            }
-
-            @else if $direction==up {
-                transform: translateY(100px);
-            }
-
-            @else if $direction==down {
-                transform: translateY(-100px);
-            }
-
-            @else {
+@mixin fadeIn() {
+    @media (prefers-reduced-motion: no-preference) {
+        animation-name: fadeIn;
+        @keyframes fadeIn {
+            0% {
                 opacity: 0;
             }
-        }
 
-        100% {
-            transform: translateX(0px) translateY(0px);
-            opacity: 1;
+            100% {
+                opacity: 1;
+            }
         }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        opacity: 1;
     }
 }

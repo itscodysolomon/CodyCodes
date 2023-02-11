@@ -59,7 +59,9 @@ nav {
                 }
 
                 &:hover i{
-                    transform: scale(1.2) rotate(30deg);
+                    @media (prefers-reduced-motion: no-preference) {
+                        transform: scale(1.2) rotate(30deg);
+                    }
                 }
             }
 
@@ -80,17 +82,9 @@ nav {
 
 
         .nav-item {
-            opacity: 0;
-            animation-duration: .5s;
-            animation-delay: 2.8s;
-            animation-fill-mode: forwards;
-
             @include bp($tablet) {
                 padding-right: 7rem;
-                @include fadeIn($direction: right);
             }
-
-            @include fadeIn($direction: up);
         }
 
         a {
@@ -121,9 +115,11 @@ nav {
 
                 &:hover {
                     &:after {
-                        width: 100%;
-                        transition: width .2s;
-                        transition-delay: .2s;
+                        @media (prefers-reduced-motion: no-preference) {
+                            width: 100%;
+                            transition: width .2s;
+                            transition-delay: .2s;
+                        }
                     }
                 }
             }
