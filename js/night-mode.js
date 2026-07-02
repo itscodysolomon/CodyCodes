@@ -1,22 +1,37 @@
+const THEME_STORAGE_KEY = 'codycodes-theme';
 
-let nightMode = false;
+const toggleNMButtons = () => {
+    const moonIcon = document.querySelector('#night-mode-toggle i:first-of-type');
+    const sunIcon = document.querySelector('#night-mode-toggle i:last-of-type');
 
-const toggleNMButtons = () => { // toggle darkmode icon buttons
     if (nightMode) {
-        document.querySelector('#night-mode-toggle i:first-of-type').style.display = 'none';
-        document.querySelector('#night-mode-toggle i:last-of-type').style.display = 'block';
+        moonIcon.style.display = 'none';
+        sunIcon.style.display = 'block';
     } else {
-        document.querySelector('#night-mode-toggle i:first-of-type').style.display = 'block';
-        document.querySelector('#night-mode-toggle i:last-of-type').style.display = 'none';
+        moonIcon.style.display = 'block';
+        sunIcon.style.display = 'none';
     }
-}
+};
+
+const persistTheme = (theme) => {
+    try {
+        localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch (error) {
+        // Ignore storage failures (private browsing, blocked storage, etc.)
+    }
+};
+
+const applyTheme = (isDark) => {
+    nightMode = isDark;
+    const theme = isDark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    persistTheme(theme);
+    toggleNMButtons();
+};
+
+let nightMode = document.documentElement.getAttribute('data-theme') === 'dark';
+toggleNMButtons();
 
 document.querySelector('#night-mode-toggle').addEventListener('click', function () {
-    nightMode = !nightMode;
-    if (nightMode) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-    }
-    toggleNMButtons();
-})
+    applyTheme(!nightMode);
+});

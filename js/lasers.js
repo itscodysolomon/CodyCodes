@@ -28,17 +28,22 @@ gsap.set("#bug", {
     transformOrigin: "50% 50%",
 });
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // animate the bug along 'infinity' path
-let bugAnimation = gsap.to("#bug", {
-    motionPath: {
-        path: "M2.404,150.854c-0,-514.246 800.481,514.245 800.481,-0c-0,-514.246 -800.481,514.245 -800.481,-0Z",
-        autoRotate: 90
-    },
-    duration: bugSpeed,
-    repeat: Infinity,
-    ease: "linear",
-    immediateRender: true,
-});
+let bugAnimation = null;
+if (!prefersReducedMotion) {
+    bugAnimation = gsap.to("#bug", {
+        motionPath: {
+            path: "M2.404,150.854c-0,-514.246 800.481,514.245 800.481,-0c-0,-514.246 -800.481,514.245 -800.481,-0Z",
+            autoRotate: 90
+        },
+        duration: bugSpeed,
+        repeat: Infinity,
+        ease: "linear",
+        immediateRender: true,
+    });
+}
 
 // positions eyes center
 const eyesCenter = () => {
@@ -59,6 +64,9 @@ const showBugMasterGif = () => {
 }
 
 const makeBugFaster = () => {
+    if (!bugAnimation) {
+        return;
+    }
     if (bugSpeed >= 30) {
         bugSpeed = bugSpeed - 10;
     } else if (bugSpeed > 8) {
@@ -209,13 +217,9 @@ const resurrectTheBug = () => {
 
 let lasersActive = false; // used to prevent user from excessive lasering
 
-document.addEventListener('click', function (e) {
-    const scrollTop = window.pageYOffset;
-    const userClickX = e.clientX;
-    const userClickY = e.clientY + scrollTop;
+const trySquashBug = (clickX, clickY) => {
     let bugCoords = setCoords(document.querySelector('#bug'));
 
-    // harder to click precisely on mobile, so give the user some slack
     const getClickAreaThresh = () => {
         if (isMobile()) {
             return 50
@@ -223,9 +227,8 @@ document.addEventListener('click', function (e) {
             return 20
         }
     }
-    
-    // did the user click close enough to the bug to 'squash' it?
-    if ((Math.abs(userClickX - bugCoords.x) < getClickAreaThresh()) && (Math.abs(userClickY - bugCoords.y) < getClickAreaThresh()) && !lasersActive) {
+
+    if ((Math.abs(clickX - bugCoords.x) < getClickAreaThresh()) && (Math.abs(clickY - bugCoords.y) < getClickAreaThresh()) && !lasersActive) {
         lasersActive = true;
         document.querySelectorAll('.eye-glow')[0].classList.add('laser-active');
         document.querySelectorAll('.eye-glow')[1].classList.add('laser-active');
@@ -247,7 +250,23 @@ document.addEventListener('click', function (e) {
             }, 50);
         }, 1000);
     }
+};
+
+document.addEventListener('click', function (e) {
+    const scrollTop = window.pageYOffset;
+    trySquashBug(e.clientX, e.clientY + scrollTop);
 });
+
+const bugWrap = document.querySelector('#bug-wrap');
+if (bugWrap) {
+    bugWrap.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const bugCoords = setCoords(document.querySelector('#bug'));
+            trySquashBug(bugCoords.x, bugCoords.y);
+        }
+    });
+}
 
 window.addEventListener('resize', function () {
     initCanvasParams();

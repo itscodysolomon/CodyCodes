@@ -5,32 +5,41 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Cody Solomon</title>
-    <!-- Primary Meta Tags -->
-    <title>Cody Solomon</title>
-    <meta name="title" content="Cody Solomon">
+    <title>Cody Solomon — Senior Software Engineer</title>
+    <meta name="title" content="Cody Solomon — Senior Software Engineer">
     <meta name="description"
-        content="Developer in the Atlanta area with 6 years of experience crafting clean, responsive user interfaces.">
+        content="Senior frontend engineer in Atlanta with 10+ years of experience. Currently at Intuit Mailchimp, focused on architecture, web performance, and accessible user interfaces.">
     <meta name="author" content="Cody Solomon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://codycodes.co/">
-    <meta property="og:title" content="Cody Solomon">
+    <meta property="og:title" content="Cody Solomon — Senior Software Engineer">
     <meta property="og:description"
-        content="Developer in the Atlanta area with 6 years of experience crafting clean, responsive user interfaces.">
+        content="Senior frontend engineer in Atlanta with 10+ years of experience. Currently at Intuit Mailchimp, focused on architecture, web performance, and accessible user interfaces.">
     <meta property="og:image" content="https://codycodes.co/assets/cody.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://codycodes.co//">
-    <meta property="twitter:title" content="Cody Solomon">
+    <meta property="twitter:url" content="https://codycodes.co/">
+    <meta property="twitter:title" content="Cody Solomon — Senior Software Engineer">
     <meta property="twitter:description"
-        content="Developer in the Atlanta area with 6 years of experience crafting clean, responsive user interfaces.">
+        content="Senior frontend engineer in Atlanta with 10+ years of experience. Currently at Intuit Mailchimp, focused on architecture, web performance, and accessible user interfaces.">
     <meta property="twitter:image" content="https://codycodes.co/assets/cody.jpg">
 
-    
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('codycodes-theme');
+                if (storedTheme === 'dark' || storedTheme === 'light') {
+                    document.documentElement.setAttribute('data-theme', storedTheme);
+                }
+            } catch (error) {
+                // Ignore storage failures
+            }
+        })();
+    </script>
     <link rel='shortcut icon' type='image/x-icon' href='./favicon.ico' />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -42,221 +51,147 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <nav aria-label="Primary">
         <ul>
-            <li class="nav-item scroll-link"><a title="My Work" href="#work">Work</a></li>
             <li class="nav-item scroll-link"><a title="About Me" href="#about">About</a></li>
             <li class="nav-item scroll-link"><a title="Contact Me" href="#contact">Contact</a></li>
             <li class="nav-item">
-                <a id="night-mode-toggle" title="Toggle Light/Dark Mode" aria-label="Toggle Light/Dark Mode">
-                    <i aria-label="Dark Mode Icon" class="ri-moon-fill"></i>
-                    <i aria-label="Light Mode Icon" class="ri-sun-fill" style="display: none;"></i>
-                </a>
+                <button type="button" id="night-mode-toggle" title="Toggle Light/Dark Mode"
+                    aria-label="Toggle Light/Dark Mode">
+                    <i aria-hidden="true" class="ri-moon-fill"></i>
+                    <i aria-hidden="true" class="ri-sun-fill" style="display: none;"></i>
+                </button>
             </li>
         </ul>
     </nav>
-    <section aria-label="Hero" id="hero">
-        <div class="content-wrap">
-            <div id="intro">
-                <h1><span class="text-primary">Hey,</span><span class="text-primary"> I'm<span class="text-primary"> Cody</span></span></h1>
-                <h2>I like to build <span class="text-primary">cool</span> things with <span
-                        class="text-primary">code</span></h2>
-                <p>
-                    Developer in the <span class="text-primary">Atlanta</span> area
-                    <br><span class="text-primary">7 years</span> working with the web
-                    <br>Currently at <a><span class="text-primary"><a title="Visit Mailchimp.com" href="https://www.mailchimp.com/"
-                                target="_blank" rel=”noreferrer”>Mailchimp</a></span></a>
-                    <br><small>Help me hunt some bugs? <span class="text-primary">*click em*</span></small>
-                </p>
-            </div>
-            <div id="hero-light">
-                <div id="cody">
-                    <div id="cody-head">
-                        <img id="head-img" title="Cody's Head" src="./assets/hero/me-no-eyes.png" alt="Cody's Head">
-                        <div id="thanks">
-                            <p>Thanks!</p>
-                        </div>
-                        <div class="eyes">
-                            <div class="eye-glow"></div>
-                            <div class="eye-glow"></div>
-                            <img class="eye" title="Cody's Left Eye" src="./assets/hero/left-eye.png" alt="Cody's Left Eye" id="left-eye">
-                            <img class="eye" title="Cody's Right Eye" src="./assets/hero/right-eye.png" alt="Cody's Right Eye" id="right-eye">
-                        </div>
-                        <div class="eye-back"></div>
-                        <div aria-label="Annoying Bug. Click to kill." id="bug-wrap">
-                            <div id="bug">
-                                <div id="body">
-
+    <main id="main">
+        <section aria-label="Hero" id="hero">
+            <div class="content-wrap">
+                <div id="intro">
+                    <h1><span class="text-primary">Hey,</span><span class="text-primary"> I'm<span
+                                class="text-primary"> Cody</span></span></h1>
+                    <h2>I like to build <span class="text-primary">cool</span> things with <span
+                            class="text-primary">code</span></h2>
+                    <p>
+                        Software Developer in the <span class="text-primary">Atlanta</span> area
+                        <br><span class="text-primary">10 years</span> working with the web
+                        <br>Currently at <a title="Visit Mailchimp.com" href="https://www.mailchimp.com/" target="_blank"
+                            rel="noreferrer"><span class="text-primary">Mailchimp</span></a>
+                        <br><small>Help me hunt some bugs? <span class="text-primary">*click em*</span></small>
+                    </p>
+                </div>
+                <div id="hero-light">
+                    <div id="cody">
+                        <div id="cody-head">
+                            <img id="head-img" title="Cody's Head" src="./assets/hero/me-no-eyes.png"
+                                alt="Illustration of Cody's head">
+                            <div id="thanks">
+                                <p>Thanks!</p>
+                            </div>
+                            <div class="eyes">
+                                <div class="eye-glow"></div>
+                                <div class="eye-glow"></div>
+                                <img class="eye" title="Cody's Left Eye" src="./assets/hero/left-eye.png"
+                                    alt="" id="left-eye">
+                                <img class="eye" title="Cody's Right Eye" src="./assets/hero/right-eye.png"
+                                    alt="" id="right-eye">
+                            </div>
+                            <div class="eye-back"></div>
+                            <button type="button" aria-label="Annoying bug. Click or press Enter to zap it."
+                                id="bug-wrap">
+                                <div id="bug">
+                                    <div id="body"></div>
+                                    <div id="head"></div>
+                                    <div id="wings">
+                                        <div class="wing"></div>
+                                        <div class="wing"></div>
+                                    </div>
+                                    <div id="antennas">
+                                        <div class="antenna"></div>
+                                        <div class="antenna"></div>
+                                    </div>
                                 </div>
-                                <div id="head">
-
-                                </div>
-                                <div id="wings">
-                                    <div class="wing"></div>
-                                    <div class="wing"></div>
-                                </div>
-                                <div id="antennas">
-                                    <div class="antenna"></div>
-                                    <div class="antenna"></div>
-                                </div>
+                            </button>
+                            <div id="bug-master">
+                                <img title="Bugs are gone. Nice work!" src="./assets/hero/bugs-gone.webp"
+                                    alt="Celebration animation showing all bugs defeated">
                             </div>
                         </div>
-                        <div id="bug-master">
-                            <img title="Bugs are gone. Nice work!" src="./assets/hero/bugs-gone.webp">
-                        </div>
+                    </div>
+                </div>
+                <div id="hero-dark">
+                    <div id="cody-dark">
+                        <object title="Night Time Cody" aria-label="Night time illustration of Cody" type="image/svg+xml"
+                            data="./assets/hero/cody-dark.svg"></object>
                     </div>
                 </div>
             </div>
-            <div id="hero-dark">
-                <div id="cody-dark">
-                    <object title="Night Time Cody" type="image/svg+xml" data="./assets/hero/cody-dark.svg"></object>
-                </div>
+        </section>
+        <section aria-label="About Me" id="about" class="bg-primary">
+            <div class="content-wrap">
+                <h2 class="text-white">About Me</h2>
+                <p>
+                    I'm a senior frontend engineer with experience across consumer SaaS and agency work. At Mailchimp,
+                    I'm a tech lead on the marketing-site engineering team, owning frontend and server-side work across
+                    pricing, integrations, and site performance. I mentor engineers through pairing, code review, and
+                    tech-spec coaching.
+                </p>
+                <p>Here are some technologies I've worked with recently:</p>
+                <ul>
+                    <li>JavaScript, TypeScript, PHP, HTML, CSS (SASS/LESS)</li>
+                    <li>React, Vue, Angular</li>
+                    <li>Jest, Playwright</li>
+                    <li>Contentful, Adobe Experience Manager (AEM), Algolia</li>
+                    <li>Git, Webpack, Splunk</li>
+                    <li>Web Performance, Web Accessibility (WCAG), A/B Testing (Optimizely)</li>
+                    <li>AI-assisted development: Claude, Cursor, Model Context Protocol (MCP) integrations</li>
+                </ul>
             </div>
-        </div>
-    </section>
-    <script>
-        let winHeight = window.innerHeight;
-        document.getElementById("hero").style.height = winHeight + "px";
-    </script>
-    <section aria-label="My Work" id="work" class="bg-primary">
-        <div class="content-wrap">
-            <h1 class="text-white">Work</h1>
-            <h2 class="text-white">Fun side projects from my spare time</h2>
-            <p>Check out my <a title="Visit my GitHub" href="https://github.com/itscodysolomon" target="_blank" rel=”noreferrer”>GitHub</a> to see the code for these projects and this <a href="https://github.com/itscodysolomon/CodyCodes" target="_blank" rel=”noreferrer” >portfolio</a>.</p>
-            <div class="card-container">
-                <div class="card">
-                    <p class="card-title">New Tab Rotate <button aria-label="Show Video Preview" class="card-preview"><i class="ri-play-circle-fill"></i>
-                    </button></p>
-                    <p class="card-description">I'm into Chrome extensions... I hoard them. I like the ones that replace
-                        your "New Tab" page with some type of interesting content. But you can only have one set by
-                        default. I wanted to have multiple "New Tab" extensions, and have them rotate everytime I opened
-                        a new tab. So I made this very literally named Chrome extension that does exactly that. Check it
-                        out:
-                    </p>
-                    <div class="card-ctas">
-                        <a title="View the code" href="https://github.com/itscodysolomon/NewTabRotate" target="_blank" rel=”noreferrer” class="card-btn-code">
-                            <i aria-label="Code Icon" class="ri-code-s-slash-line"></i>
-
-                            Code
-                        </a>
-                        <a title="Get the Chrome Extension" rel=”noreferrer” href="https://chrome.google.com/webstore/detail/new-tab-rotate/ahgcbolioopacfcnofmbpfebmggfbhia?hl=en-US" class="card-btn-live" target="_blank">
-                            <i aria-label="External Link Icon" class="ri-external-link-line"></i>
-
-                            Live
-                        </a>
-                    </div>
-                </div>
-                <div class="card">
-                    <p class="card-title">NOTE BRO <button aria-label="Show Video Preview" class="card-preview"><i class="ri-play-circle-fill"></i>
-                    </button></p>
-                    <p class="card-description">I found myself constantly opening text pads to jot stuff down. I was
-                        tired of the clutter, and I wanted to play with the Electron framework, so I made NoteBro. The
-                        goal was a quick access note taking app, that kept everything in one place. Check out the code
-                        and download the MacOS app:
-                    </p>
-                    <div class="card-ctas">
-                        <a title="View the code" href="https://github.com/itscodysolomon/notebro" target="_blank" rel=”noreferrer” class="card-btn-code">
-                            <i aria-label="Code Icon" class="ri-code-s-slash-line"></i>
-
-                            Code
-                        </a>
-                        <a title="Download NoteBro" href="https://github.com/itscodysolomon/NOTEBRO/raw/main/install/NOTE%20BRO-1.0.0.dmg" rel=”noreferrer” class="card-btn-live">
-                            <i aria-label="Download Icon" class="ri-download-line"></i>
-
-                            Download
-                        </a>
-                    </div>
-                </div>
-                <div class="card">
-                    <p class="card-title">Smokey Gringo <button aria-label="Show Video Preview" class="card-preview"><i class="ri-play-circle-fill"></i>
-                    </button></p>
-                    <p class="card-description">My best friend had a dream to open his own restaurant. He loves Mexican
-                        food and he loves BBQ, so he joined the two, and it's very good. I had the pleasure of creating
-                        a website for it and learned more about the Gatsby framework along the way. If you're in Winder
-                        GA, check out Smokey Gringo Taco Bar.
-                    </p>
-                    <div class="card-ctas">
-                        <a title="View the code" href="https://github.com/itscodysolomon/SmokeyGringo" target="_blank" rel=”noreferrer” class="card-btn-code">
-                            <i aria-label="Code Icon" class="ri-code-s-slash-line"></i>
-
-                            Code
-                        </a>
-                        <a title="Visit www.smokeygringo.com" rel=”noreferrer” href="http://www.smokeygringo.com" target="_blank" class="card-btn-live">
-                            <i aria-label="External Link Icon" class="ri-external-link-line"></i>
-
-                            Live
-                        </a>
-                    </div>
-                </div>
+        </section>
+        <section aria-label="Contact Me" id="contact" class="bg-primary">
+            <div class="content-wrap">
+                <h2 class="text-white">Let's Talk!</h2>
+                <p>
+                    <a class="contact-link" title="Email Me" href="mailto:itscodysolomon@gmail.com">
+                        <i aria-hidden="true" class="ri-mail-send-line"></i>
+                        <u>Email</u>
+                    </a>
+                    <a class="contact-link" title="Visit my LinkedIn" href="https://www.linkedin.com/in/cody-solomon-0639135a/"
+                        target="_blank" rel="noreferrer">
+                        <i aria-hidden="true" class="ri-linkedin-box-fill"></i>
+                        <u>LinkedIn</u>
+                    </a>
+                    <a class="contact-link" title="Visit my GitHub" href="https://github.com/itscodysolomon"
+                        target="_blank" rel="noreferrer">
+                        <i aria-hidden="true" class="ri-github-fill"></i>
+                        <u>GitHub</u>
+                    </a>
+                    <a class="contact-link" title="Download my resume" href="./assets/cody-solomon-resume.pdf"
+                        target="_blank" rel="noreferrer">
+                        <i aria-hidden="true" class="ri-file-text-fill"></i>
+                        <u>Resume</u>
+                    </a>
+                </p>
+                <p>
+                    Check out our
+                    <a title="Visit my VSCO profile" href="https://vsco.co/itscodyandlaura/gallery" target="_blank"
+                        rel="noreferrer">
+                        VSCO
+                    </a> for photos of our travels and too many cats.
+                </p>
             </div>
-        </div>
-    </section>
-    <section aria-label="About Me" id="about" class="bg-primary">
-        <div class="content-wrap">
-            <h1 class="text-white">About Me</h1>
-            <p>I started my career on the design side of the industry and grew more interested in development after my
-                first year. I've had a blast honing my skills since then, and have mainly focused on the front-end. I have experience leading projects, and I love helping others learn!</p>
-            <p>I love learning new technologies!<br>Here are some I've worked with:</p>
-            <ul>
-                <li>
-                    HTML, CSS (SCSS/LESS)
-                </li>
-                <li>
-                    JavaScript (React, Vue, Angular, Electron, jQuery)
-                </li>
-                <li>
-                    Contentful, Adobe Experience Manager, Wordpress, Drupal
-                </li>
-                <li>
-                    Figma, Adobe (Photoshop, Illustrator, XD)
-                </li>
-                <li>
-                    Git/Github, Jira
-                </li>
-            </ul>
-            <p>I have a lot of interests outside of development! Here are a few:
-                <br>Traveling with my wife, our three cats, golf, guitar, hiking, camping, snowboarding, and exploring our beautiful national parks</p>
-        </div>
-    </section>
-    <section aria-label="Contact Me" id="contact" class="bg-primary">
-        <div class="content-wrap">
-            <h1 class="text-white">Let's Talk!</h1>
-            <p>
-                <a class="contact-link" title="Email Me" rel=”noreferrer” href="mailto:itscodysolomon@gmail.com" target="_blank">
-                    <i aria-label="Email Icon" class="ri-mail-send-line"></i>
-                    <u>Email</u>
-                </a>
-                <a class="contact-link" title="Visit my LinkedIn" rel=”noreferrer” href="https://www.linkedin.com/in/cody-solomon-0639135a/" target="_blank">
-                    <i aria-label="LinkedIn Icon" class="ri-linkedin-box-fill"></i>
-                    <u>LinkedIn</u>
-                </a>
-                <a class="contact-link" title="Visit my Github" rel=”noreferrer” href="https://github.com/itscodysolomon" target="_blank">
-                    <i aria-label="GitHub Icon" class="ri-github-fill"></i>
-                    <u>GitHub</u>
-                </a>
-                <a class="contact-link" title="Download my Résumé" rel=”noreferrer” href="./assets/cody-solomon-résumé.pdf" target="_blank">
-                    <i aria-label="Document Icon" class="ri-file-text-fill"></i>
-                    <u>Résumé</u>
-                </a>
-            </p>
-            <p>
-                Check out our
-                <a title="Visit my VSCO profile" rel=”noreferrer” href="https://vsco.co/itscodyandlaura/gallery" target="_blank">
-                    VSCO
-                </a> for photos of our <br>travels and too many cats.
-            </p>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer>
         <div class="content-wrap">
-            <small aria-label="Copyright 2021 Cody Solomon">Cody Solomon &#169; 2023</small>
+            <small>Cody Solomon &#169; 2026</small>
         </div>
     </footer>
     <script src="./js/gsap.min.js"></script>
     <script src="./js/MotionPathPlugin.min.js"></script>
     <script src="js/lasers.js"></script>
     <script src="js/night-mode.js"></script>
-    <script src="js/project-previews.js"></script>
     <script src="js/scroll-into-view.js"></script>
 </body>
 

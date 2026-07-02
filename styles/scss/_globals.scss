@@ -88,6 +88,35 @@ body {
         }
     }
 
+    :focus-visible {
+        outline: 3px solid var(--primary);
+        outline-offset: 3px;
+    }
+
+}
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 200;
+    padding: 1rem 1.5rem;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    @include cabin-bold;
+    font-size: 1.6rem;
+
+    &:focus {
+        top: 1rem;
+    }
+}
+
+#bug-wrap {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 .content-wrap {

@@ -45,13 +45,13 @@ nav {
             margin-bottom: -0.25rem;
             padding: 0;
 
-            a {
+            button {
+                background: none;
+                border: none;
+                padding: 0;
+                color: var(--nav-text);
                 font-size: 2rem;
                 cursor: pointer;
-
-                &:after {
-                    content: none;
-                }
 
                 i {
                     display: inline-block;
@@ -68,7 +68,7 @@ nav {
             @include bp($tablet) {
                 margin-bottom: -.75rem;
 
-                a {
+                button {
                     font-size: 2.2rem;
                 }
             }
